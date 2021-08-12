@@ -1,0 +1,7 @@
+.menu {
+  display: flex;
+  gap: 16px;
+}
+.active {
+  color: aquamarine;
+}
