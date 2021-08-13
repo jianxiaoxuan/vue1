@@ -1,6 +1,6 @@
 <template>
   <h3>{{ name }}</h3>
-  <input type="text" @input="jian">
+  <input type="text" @keyup="jian">
 </template>
 
 <script>
@@ -14,7 +14,9 @@ export default {
 
   methods: {
     jian(da) {
-      console.log(da);
+      if (da.key === 'Enter') {
+        console.log(da);
+      }
     }
   }
 };
