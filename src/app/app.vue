@@ -1,7 +1,15 @@
 <template>
   <h3>{{ name }}</h3>
-  <input id="checked" type="checkbox" v-model="checked">
-  <label for="checked">> Checked: {{checked}}</label>
+  <label for="tag-1">
+    <input id="tag-1" type="checkbox" value="大明湖" v-model="tags">
+  </label>
+  <label for="tag-2">
+    <input id="tag-2" type="checkbox" value="黑虎泉" v-model="tags">
+  </label>
+  <label for="tag-3">
+    <input id="tag-3" type="checkbox" value="桂林水" v-model="tags">
+  </label>
+  <span>> Tags: {{tags}}</span>
 </template>
 
 <script>
@@ -9,7 +17,7 @@ export default {
   data() {
     return {
       name: '宁皓网',
-      checked: true
+      tags: []
     };
   },
 };
