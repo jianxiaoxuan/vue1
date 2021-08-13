@@ -6,6 +6,7 @@ import { createStore } from "vuex";
 const store = createStore({
   state: {
     name: '',
+    loading: false,
   },
 
   getters: {
@@ -17,14 +18,22 @@ const store = createStore({
   mutations: {
     setName(state, data) {
       state.name = data;
+    },
+
+    setLoading(state, data) {
+      state.loading = data;
     }
   },
 
   actions: {
     getName({commit}) {
-      const name = '宁皓网';
-      commit('setName', name);
-      // console.log(context);
+      commit('setLoading', true);
+
+      setTimeout(() => {
+        const name = '宁皓网';
+        commit('setName', name);
+        commit('setLoading', false);
+      }, 2000);
     },
   },
 });
