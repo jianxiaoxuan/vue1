@@ -1,6 +1,7 @@
 <template>
   <h3>{{ name }}</h3>
-  <input type="text" @keyup="jian">
+  <input type="text" v-model.number="content" @change="onChangeContent">
+  <span>Content: {{content}}</span>
 </template>
 
 <script>
@@ -8,15 +9,17 @@ export default {
   data() {
     return {
       name: '宁皓网',
-      category: ''
+      content: 0
     };
   },
 
+  created() {
+    console.log('content 数据的类型（组件创建时）：', typeof this.content);
+  },
+
   methods: {
-    jian(da) {
-      if (da.key === 'Enter') {
-        console.log(da);
-      }
+    onChangeContent() {
+      console.log('content 数据的类型（元素值变化后）:', typeof this.content);
     }
   }
 };
