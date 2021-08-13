@@ -2,7 +2,7 @@
   <h3 @click="onClickName">{{ name }}
     <span v-if="loading">加载中...</span>
   </h3>
-  {{user.currentUser}}
+  {{currentUser}}
 </template>
 
 <script>
@@ -14,7 +14,10 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['name']),
+    ...mapGetters({
+      name: 'name',
+      currentUser: 'user/currentUser'
+      }),
     ...mapState(['loading', 'user']),
   },
 
@@ -28,7 +31,7 @@ export default {
 
     ...mapActions({
       getName: 'getName',
-      getCurrentUser: 'getCurrentUser'
+      getCurrentUser: 'user/getCurrentUser'
     }),
 
     onClickName() {
