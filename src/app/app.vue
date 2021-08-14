@@ -6,7 +6,10 @@
         <div class="card-subtitle">Transition & Animation</div>
       </div>
       <div class="card__content">
-        <div class="emoji">🎄</div>
+        <div :class="['emoji', { hedden: !isActive }]">🎄</div>
+      </div>
+      <div class="card__action">
+        <button @click="isActive = !isActive">请按这里</button>
       </div>
     </div>
   </div>
@@ -17,6 +20,7 @@ export default {
   data() {
     return {
       name: '宁皓网',
+      isActive: true,
     };
   },
 };
