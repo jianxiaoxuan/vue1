@@ -1,7 +1,8 @@
-.menu {
-  display: flex;
-  gap: 16px;
+.page {
+  padding: 32px;
+  margin: 32px;
 }
-.active {
-  color: aquamarine;
+
+.emoji {
+  font-size: 80px;
 }
