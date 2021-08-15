@@ -23,10 +23,6 @@ export default {
       name: '宁皓网',
       posts: [],
       errorMessage: '',
-      user: {
-        name: '大嘴',
-        password: '123123',
-      },
       token: '',
       title: ''
     };
@@ -34,14 +30,6 @@ export default {
 
   async created() {
     this.getPosts();
-
-    try {
-      const response = await apiHttpClient.post('/login', this.user);
-      this.token = response.data.token;
-    } catch (error) {
-      this.errorMessage = error.message;
-    }
-    
   },
 
   methods: {
