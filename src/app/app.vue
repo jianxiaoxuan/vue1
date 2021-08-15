@@ -15,7 +15,12 @@ export default {
     return {
       name: '宁皓网',
       posts: [],
-      errorMessage: ''
+      errorMessage: '',
+      user: {
+        name: '大嘴',
+        password: '123123',
+        token: ''
+      }
     };
   },
 
@@ -26,6 +31,13 @@ export default {
       // console.log(axios.defaults);
 
       this.posts = response.data;
+    } catch (error) {
+      this.errorMessage = error.message;
+    }
+
+    try {
+      const response = await apiHttpClient.post('/login', this.user);
+      this.token = response.data.token;
     } catch (error) {
       this.errorMessage = error.message;
     }
